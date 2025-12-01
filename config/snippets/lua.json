@@ -1,0 +1,7 @@
+{
+  "For Loop": {
+    "prefix": ["for"],
+    "body": ["for ${1:items} = ${1:range} do", "\t$0"],
+    "description": "Iterate a range of items."
+  }
+}

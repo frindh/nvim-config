@@ -1,0 +1,7 @@
+{
+  "Class with constructor": {
+    "prefix": ["cls"],
+    "body": ["class ${1:name}:", "\tdef __init__(self, ${2:params}) -> None:","\t$0"],
+    "description": "Create a class."
+  }
+}
