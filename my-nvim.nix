@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   # Tools and LSP servers available to Neovim
   lspTools = with pkgs; [
     lua-language-server
@@ -59,15 +57,14 @@ let
           nvim-lspconfig
           # autocompletion
           blink-cmp
-          friendly-snippets   
-          mini-pairs
+          friendly-snippets
           mini-files
           mini-icons
           #oil-nvim
-          nvimTreesitter  # syntax highlighting
-          telescope-nvim  # fuzzy search for files etc.
+          nvimTreesitter # syntax highlighting
+          telescope-nvim # fuzzy search for files etc.
           telescope-fzf-native-nvim
-          plenary-nvim  # dependency for telescope
+          plenary-nvim # dependency for telescope
           kanagawa-nvim
         ];
       };
@@ -88,6 +85,4 @@ let
     fi
   '';
 in
-
-nvimWrapped
-
+  nvimWrapped
