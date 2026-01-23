@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   # Tools and LSP servers available to Neovim
   lspTools = with pkgs; [
+    tree-sitter
     lua-language-server
     nixd
     alejandra
@@ -62,6 +63,8 @@
           mini-icons
           #oil-nvim
           nvimTreesitter # syntax highlighting
+          nvim-treesitter-textobjects
+
           telescope-nvim # fuzzy search for files etc.
           telescope-fzf-native-nvim
           plenary-nvim # dependency for telescope

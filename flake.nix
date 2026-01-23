@@ -1,11 +1,22 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }: {
-    packages = nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" ] (system: {
-      default = import ./my-nvim.nix { 
-        pkgs = nixpkgs.legacyPackages.${system}; 
-      };
-    });
+  outputs = {
+    self,
+    nixpkgs,
+  }: let
+    systems = ["x86_64-linux" "aarch64-linux"];
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    packages = forAllSystems (
+      system: let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [];
+        };
+      in {
+        default = pkgs.callPackage ./my-nvim.nix {};
+      }
+    );
   };
 }
