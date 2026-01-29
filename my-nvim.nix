@@ -61,9 +61,11 @@
           friendly-snippets
           mini-files
           mini-icons
-          #oil-nvim
           nvimTreesitter # syntax highlighting
-          nvim-treesitter-textobjects
+          # Override to remove legacy treesitter dependency that conflicts with nvimTreesitter
+          (nvim-treesitter-textobjects.overrideAttrs (old: {
+            dependencies = [];
+          }))
 
           telescope-nvim # fuzzy search for files etc.
           telescope-fzf-native-nvim
